@@ -1,0 +1,14 @@
+question 4
+import pandas as pd
+
+def filter_routes(dataframe):
+# Calculate the average value of the "truck" column for each route
+route_avg_truck = dataframe.groupby('route')['truck'].mean()
+
+# Filter routes where the average value of the "truck" column is greater than 7
+filtered_routes = route_avg_truck[route_avg_truck > 7].index.tolist()
+
+return filtered_routes
+result = filter_routes(dataset)
+print(result)
+
